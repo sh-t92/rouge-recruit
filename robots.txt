@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://sh-t92.github.io/rouge-recruit/sitemap.xml
