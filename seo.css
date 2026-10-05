@@ -2,3 +2,10 @@
 .related strong{color:var(--ink)}
 .related a{color:var(--wine);text-decoration:none}
 .related a:hover{text-decoration:underline}
+.article-cta{margin:46px 0 0;padding:30px 24px;text-align:center;background:#171318;border:1px solid #8b6a45;color:#fff}
+.article-cta strong{display:block;font-size:1.35rem;font-weight:500;letter-spacing:.04em}
+.article-cta p{margin:10px 0 20px;color:#d7ced5}
+.article-cta .line-button{display:inline-block;padding:15px 28px;background:#821c3a;color:#fff;text-decoration:none;font-weight:600;letter-spacing:.05em}
+.article-cta .line-button:hover{background:#9a2749}
+.article-cta .conditions-link{display:block;margin-top:15px;color:#d8aa63;text-decoration:none}
+@media(max-width:640px){.article-cta{padding:25px 18px}.article-cta .line-button{display:block}}
