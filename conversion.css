@@ -1,0 +1,47 @@
+.mobile-entry-bar {
+  display: none;
+}
+
+@media (max-width: 780px) {
+  body {
+    padding-bottom: 76px;
+  }
+
+  .mobile-entry-bar {
+    position: fixed;
+    z-index: 30;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    color: #fff;
+    background: rgba(20, 18, 22, .98);
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, .22);
+  }
+
+  .mobile-entry-bar span {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .mobile-entry-bar small {
+    color: #c9bec5;
+    font-size: 10px;
+  }
+
+  .mobile-entry-bar a {
+    flex: 0 0 auto;
+    padding: 11px 18px;
+    border-radius: 3px;
+    color: #fff;
+    background: #06c755;
+    font-family: Arial, "Yu Gothic", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+}
