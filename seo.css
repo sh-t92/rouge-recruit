@@ -8,4 +8,10 @@
 .article-cta .line-button{display:inline-block;padding:15px 28px;background:#821c3a;color:#fff;text-decoration:none;font-weight:600;letter-spacing:.05em}
 .article-cta .line-button:hover{background:#9a2749}
 .article-cta .conditions-link{display:block;margin-top:15px;color:#d8aa63;text-decoration:none}
+.condition-summary{margin:0 0 42px;padding:26px 24px;text-align:center;background:#171318;border:1px solid #8b6a45;color:#fff}
+.condition-summary>strong{display:block;font-size:1.25rem;font-weight:500;letter-spacing:.04em}
+.condition-summary ul{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 18px;margin:18px 0;padding:0;list-style:none;color:#e2bc80}
+.condition-summary li{font-size:.98rem}
+.condition-summary .line-button{display:inline-block;padding:14px 26px;background:#821c3a;color:#fff;text-decoration:none;font-weight:600;letter-spacing:.04em}
+.condition-summary>p{margin:12px 0 0;color:#d7ced5;font-size:.9rem}
 @media(max-width:640px){.article-cta{padding:25px 18px}.article-cta .line-button{display:block}}
