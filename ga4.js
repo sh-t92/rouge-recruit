@@ -9,6 +9,31 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-09QZRMTLVK');
 
+// Keep the original campaign information while visitors move between pages.
+var attributionKey = 'rouge_recruit_attribution';
+var query = new URLSearchParams(window.location.search);
+var savedAttribution = {};
+try {
+  savedAttribution = JSON.parse(sessionStorage.getItem(attributionKey) || '{}');
+} catch (error) {
+  savedAttribution = {};
+}
+
+var currentAttribution = {
+  utm_source: query.get('utm_source') || savedAttribution.utm_source || '(direct)',
+  utm_medium: query.get('utm_medium') || savedAttribution.utm_medium || '(none)',
+  utm_campaign: query.get('utm_campaign') || savedAttribution.utm_campaign || '(not set)',
+  utm_content: query.get('utm_content') || savedAttribution.utm_content || '(not set)',
+  landing_page: savedAttribution.landing_page || window.location.pathname,
+  first_referrer: savedAttribution.first_referrer || document.referrer || '(direct)'
+};
+
+try {
+  sessionStorage.setItem(attributionKey, JSON.stringify(currentAttribution));
+} catch (error) {
+  // Measurement still works if browser storage is unavailable.
+}
+
 // Measure recruitment actions consistently across every page.
 document.addEventListener('click', function(event) {
   var link = event.target.closest('a[href]');
@@ -20,9 +45,12 @@ document.addEventListener('click', function(event) {
     cta_text: (link.textContent || '').trim(),
     page_path: window.location.pathname,
     link_url: href,
-    utm_source: new URLSearchParams(window.location.search).get('utm_source') || '(not set)',
-    utm_medium: new URLSearchParams(window.location.search).get('utm_medium') || '(not set)',
-    utm_campaign: new URLSearchParams(window.location.search).get('utm_campaign') || '(not set)',
+    utm_source: currentAttribution.utm_source,
+    utm_medium: currentAttribution.utm_medium,
+    utm_campaign: currentAttribution.utm_campaign,
+    utm_content: currentAttribution.utm_content,
+    landing_page: currentAttribution.landing_page,
+    first_referrer: currentAttribution.first_referrer,
     transport_type: 'beacon'
   };
 
